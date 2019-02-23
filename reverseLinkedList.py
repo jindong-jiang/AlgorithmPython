@@ -74,7 +74,7 @@ if __name__=="__main__":
     #head.next=None
     currt=head
     number =0
-    while number<10:
+    while number<100:
         number=number+1
         temp=LNode(number)
         currt.next=temp        
