@@ -15,29 +15,30 @@ def reverse(head):
         currt.next=prev
         prev=currt
         currt=next
+    currt.next=prev
     head.next=currt
 
 if __name__=="__main__":
-    number =1
+    number =0
     head=LNode(number)
     #head.next=None
     currt=head
     while number<10:
-        temp=LNode(number)
-        currt.next=temp
         number=number+1
+        temp=LNode(number)
+        currt.next=temp        
         currt=temp
 
     print("here is the linked list not reversed")
     currt=head.next
-    while currt.next!=None:
+    while currt!=None:
         print("{}".format(currt.data))
         currt=currt.next
 
     reverse(head)
     currt=head.next
     print("here is the linked list after reversed")
-    while currt.next!=None:
+    while currt!=None:
         print("{}".format(currt.data))
         currt=currt.next
 
