@@ -48,12 +48,25 @@ def recursiveReverse(head):
             newHead=recursiveReverse(head.next)
             head.next.next=head
             head.next=None
-            return newHead            
+            return newHead  
+
 def reverseInsert(head):
+    """
+    traverse all the elements, the node traversed everytime
+    will be inserted after the head node 
+    """
     if head is None or head.next is None:
         return 
     currt,next=None,None
-
+    currt=head.next.next
+    head.next.next=None    
+    while currt!=None:
+        tmp=head.next
+        head.next=currt
+        next=currt.next
+        currt.next=tmp
+        currt=next
+        
 
 if __name__=="__main__":
     
@@ -87,4 +100,9 @@ if __name__=="__main__":
         print("{}".format(currt.data))
         currt=currt.next
 
-
+    reverseInsert(newhead)
+    currt=newhead.next
+    print("here is the linked list after inserting reversed")
+    while currt!=None:
+        print("{}".format(currt.data))
+        currt=currt.next
